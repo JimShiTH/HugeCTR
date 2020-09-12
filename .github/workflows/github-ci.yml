@@ -13,7 +13,7 @@ jobs:
     container:
       image: xiaoleishi/hugectr:v1.1
       volumes:
-        - /home/hugectr/actions-runner/dataset:/dataset
+        - /raid/hugectr/criteo_kaggle:/datasets
 
     steps:
       - name: Check out repository code
@@ -59,4 +59,5 @@ jobs:
         working-directory: ${{runner.workspace}}/HugeCTR/build/bin
         shell: bash
         run: |
+          ls /datasets
           mpirun --allow-run-as-root -np 1 ./loss_test
