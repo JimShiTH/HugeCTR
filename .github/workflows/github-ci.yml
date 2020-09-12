@@ -63,4 +63,4 @@ jobs:
           cd /dataset
           pwd
           echo $BIN_DIR
-          mpirun --allow-run-as-root -np 1 ./loss_test
+          mpirun --allow-run-as-root -np 1 .$BIN_DIR/loss_test
