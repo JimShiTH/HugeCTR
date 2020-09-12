@@ -51,12 +51,12 @@ jobs:
       - name: Build
         working-directory: ${{runner.workspace}}/HugeCTR
         run: |
-          mkdir build_multi && cd build_multi
+          mkdir build && cd build
           cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_MULTINODES=ON -DSM=70 ..
           make -j
 
-      - name: Test build multi
-        working-directory: ${{runner.workspace}}/HugeCTR/build_multi/bin
+      - name: Test multiple nodes
+        working-directory: ${{runner.workspace}}/HugeCTR/build/bin
         shell: bash
         run: |
           mpirun --allow-run-as-root -np 1 ./loss_test
