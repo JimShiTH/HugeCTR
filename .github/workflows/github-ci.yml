@@ -60,6 +60,6 @@ jobs:
         shell: bash
         run: |
           pwd
-          cd datasets
+          cd _datasets
           pwd
           mpirun --allow-run-as-root -np 1 ../HugeCTR/build/bin/loss_test
