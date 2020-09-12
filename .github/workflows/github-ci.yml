@@ -56,8 +56,9 @@ jobs:
           make -j
 
       - name: Test multiple nodes
-        working-directory: ${{runner.workspace}}/_datasets
+        working-directory: ${{runner.workspace}}
         shell: bash
         run: |
-          pwd
+          ls -alh
+          ls -alh ../_datasets
           mpirun --allow-run-as-root -np 1 ../HugeCTR/build/bin/loss_test
