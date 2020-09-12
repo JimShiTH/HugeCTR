@@ -28,9 +28,8 @@ jobs:
           mkdir build && cd build
           cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DSM=70 .. && make -j
 
-      - name: utest
+      - name: Unit test
         working-directory: ${{runner.workspace}}/HugeCTR/build/bin
         shell: bash
         run: |
-          ./layers_test
-          ./embedding_test
+          ./checker_test
