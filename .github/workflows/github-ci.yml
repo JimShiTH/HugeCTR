@@ -60,4 +60,5 @@ jobs:
         run: |
           pwd
           cd /dataset
+          pwd
           mpirun --allow-run-as-root -np 1 ./loss_test
