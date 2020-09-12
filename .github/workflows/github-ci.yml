@@ -32,6 +32,7 @@ jobs:
         working-directory: ${{runner.workspace}}/HugeCTR/build/bin
         shell: bash
         run: |
+          pwd
           ./checker_test
 
   jobs:
