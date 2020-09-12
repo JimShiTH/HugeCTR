@@ -59,5 +59,6 @@ jobs:
         # working-directory: ${{runner.workspace}}
         shell: bash
         run: |
-          ls -alh /dataset
+          cd /dataset
+          pwd
           # mpirun --allow-run-as-root -np 1 ../HugeCTR/build/bin/loss_test
