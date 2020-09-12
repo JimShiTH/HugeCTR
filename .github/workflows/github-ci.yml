@@ -7,7 +7,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  build_1:
+  single_node_test:
     runs-on: self-hosted
 
     container:
@@ -33,3 +33,32 @@ jobs:
         shell: bash
         run: |
           ./checker_test
+
+  jobs:
+    name: multi_node_test
+    runs-on: self-hosted
+    
+    container:
+      image: xiaoleishi/hugectr:v1.1
+      volumes:
+        - /home/hugectr/actions-runner/dataset:/dataset
+    
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Build
+        working-directory: ${{runner.workspace}}
+        run: |
+          cd HugeCTR
+          mkdir build_multi && cd build_multi
+          cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_MULTINODES=ON -DSM=70 ..
+          make -j
+
+      - name: Test build multi
+        working-directory: ${{runner.workspace}}/HugeCTR/build_multi/bin
+        shell: bash
+        run: |
+          mpirun --allow-run-as-root -np 1 ./loss_test
