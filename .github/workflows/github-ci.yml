@@ -60,4 +60,5 @@ jobs:
         shell: bash
         run: |
           ls /datasets
+          ls ${{runner.workspace}}/HugeCTR/build/bin
           mpirun --allow-run-as-root -np 1 ./loss_test
