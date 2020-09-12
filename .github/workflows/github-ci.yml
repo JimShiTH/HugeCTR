@@ -5,6 +5,7 @@ on: [push]
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
+  BIN_DIR: /__w/HugeCTR/HugeCTR/build/bin
 
 jobs:
   single_node_test:
@@ -61,4 +62,5 @@ jobs:
           pwd
           cd /dataset
           pwd
+          echo $BIN_DIR
           mpirun --allow-run-as-root -np 1 ./loss_test
