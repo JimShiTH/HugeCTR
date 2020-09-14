@@ -58,6 +58,7 @@ jobs:
       - name: Test multiple nodes
         shell: bash
         run: |
+          pwd
           cd /dataset
           ls -alh
           # mpirun --allow-run-as-root -np 1 ../HugeCTR/build/bin/loss_test
