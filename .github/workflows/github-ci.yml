@@ -67,4 +67,5 @@ jobs:
           echo $BIN_PATH
           cd /dataset
           ls -alh
-          # mpirun --allow-run-as-root -np 1 ../HugeCTR/build/bin/loss_test
+          ls -lh $BIN_PATH/loss_test
+          mpirun --allow-run-as-root -np 1 $BIN_PATH/loss_test
