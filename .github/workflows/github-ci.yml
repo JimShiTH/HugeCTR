@@ -69,3 +69,4 @@ jobs:
           ls -alh
           ls -lh $BIN_PATH/loss_test
           mpirun --allow-run-as-root -np 1 $BIN_PATH/loss_test
+          mpirun --allow-run-as-root -np 1 $BIN_PATH/layers_test
