@@ -58,15 +58,7 @@ jobs:
       - name: Test multiple nodes
         shell: bash
         run: |
-          pwd
-          ls -alh
-          cd build/bin
-          pwd
-          ls -alh
-          BIN_PATH=$(pwd)
-          echo $BIN_PATH
+          cd build/bin && BIN_PATH=$(pwd)
           cd /dataset
-          ls -alh
-          ls -lh $BIN_PATH/loss_test
           mpirun --allow-run-as-root -np 1 $BIN_PATH/loss_test
           mpirun --allow-run-as-root -np 1 $BIN_PATH/layers_test
